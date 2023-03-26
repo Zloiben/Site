@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load tags %}
+{% load static %}
+
+{% block content %}
+    <div class="container m-top-2">
+        <a id="post-back-a" href="/" class="btn-icon m-bottom-2">
+            <img class="icon" src="{% static 'image/arrow-back.svg' %}" alt="">
+        </a>
+        <div id="{{ post.pk }}" class="card border-none">
+            <div class="bd-placeholder-img card-img-top">
+                <img src="{{ post.photo.url }}" width="100%" height="450px" alt="Изображение"
+                     aria-label="Image" title="Image">
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">{{ post.title }}</h4>
+                <p class="card-text">{{ post.content }}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="like-info">
+                        {% get_like_image request post %}
+                        <p class="like-info__count">{{ post.get_total_likes }}</p>
+                    </div>
+                    <small class="text-muted">{{ post.time_create }}</small>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+{% block script %}
+    <script src="{% static 'js/check.js' %}"></script>
+{% endblock %}
