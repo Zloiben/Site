@@ -76,7 +76,7 @@ WSGI_APPLICATION = 'SiteDjangoHatsu.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'hatsu_site_db',
+        'NAME': 'site_db',
         'USER': 'postgres',
         'PASSWORD': 'Ogorngop13',
         'HOST': 'localhost',

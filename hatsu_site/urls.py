@@ -8,6 +8,8 @@ from .views import *
 router = routers.SimpleRouter()
 router.register(r'post', PostViewSet, basename="post")
 router.register(r'like', LikeViewSet, basename="like")
+router.register(r'user', UserViewSet, basename='user')
+router.register(r'category', CategoryViewSet, basename='category')
 
 
 urlpatterns = [

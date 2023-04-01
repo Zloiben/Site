@@ -8,6 +8,26 @@ from .serializer import *
 from .models import *
 
 
+class UserViewSet(ModelViewSet):
+    serializer_class = UserSerializer
+
+    def get_queryset(self) -> list:
+        pk = self.kwargs.get("pk")
+        if not pk:
+            return User.objects.all()
+        return User.objects.filter(pk=pk)
+
+
+class CategoryViewSet(ModelViewSet):
+    serializer_class = CategorySerializer
+
+    def get_queryset(self) -> list:
+        pk = self.kwargs.get("pk")
+        if not pk:
+            return Category.objects.all()
+        return Category.objects.filter(pk=pk)
+
+
 class PostViewSet(ModelViewSet):
     lookup_field = 'slug'
     serializer_class = PostSerializer
